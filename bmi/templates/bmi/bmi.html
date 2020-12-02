@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form action="{% url 'yourbmi' %}">
+    Enter your mass(kg) : <input type="text" name="mass"><br>
+    Enter your height(cm) : <input type="text" name="height"><br>
+    <input type="submit" value="Calculate">
+</form>
+
+
+{% endblock %}

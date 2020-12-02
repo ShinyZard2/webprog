@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for plan in plan.all %}
+<div class="row pt-3">
+  <div class="col-2" onclick="window.location='{% url 'fitplan' plan.id %}';" style="cursor: pointer;">
+  </div>
+  <div class="col-6" onclick="window.location='{% url 'fitplan' plan.id %}';" style="cursor: pointer;">
+    <h1>{{ plan.title }}</h1>
+    <p>{{ plan.summary }}</p>
+  </div>
+  <div class="col-4">
+    <a href="javascript:{document.getElementById('upvotes{{ plan.id }}').submit()}"><button class="btn btn-primary btn-lg btn-block"><span class="oi oi-caret-top"></span> Upvote {{ plan.likes }}</button></a>
+  </div>
+</div>
+
+<form id="upvotes{{ plan.id }}" method="POST" action="{% url 'upvotes' plan.id %}">
+  {% csrf_token%}
+  <input type="hidden">
+</form>
+{% endfor %}
+
+{% endblock %}
