@@ -2,11 +2,27 @@
 
 {% block content %}
 
-<form action="{% url 'yourbmi' %}">
-    Enter your mass(kg) : <input type="text" name="mass"><br>
-    Enter your height(cm) : <input type="text" name="height"><br>
-    <input type="submit" value="Calculate">
-</form>
+<div>
+    <h1 style="padding: 5% 0% 5%; text-align: center">Calculate your BMI!</h1>
+    <div style="padding-right: 35%;padding-left: 35%;padding-top: 2%;padding-bottom: 200px;">
+        <form action="{% url 'yourbmi' %}" class="form-group">
 
+             Pick a Unit For Your Mass
+            <select class="input" placeholder="Unit" name="wUnit" style="margin-left: 40px">
+                <option value="Kg">Kg</option>
+                <option value="lb">lb</option>
+            </select>
+            <input type="text" name="mass" class="form-control" placeholder="Input Your Mass" style="margin-bottom: 5%">
 
+            Pick a Unit For Your Height
+            <select class="input" placeholder="Unit" name="hUnit" style="margin-left: 28.5px">
+                <option value="cm">cm</option>
+                <option value="in">in</option>
+            </select>
+            <input type="text" name="height" class="form-control" placeholder="Input Your Height">
+            <br>
+        <button type="submit" value="Calculate" class="btn btn-success">Calculate</button>
+    </form>
+    </div>
+</div>
 {% endblock %}
