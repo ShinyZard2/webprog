@@ -2,6 +2,40 @@
 
 {% block content %}
 
-Your BMI : {{result}}
+<h1 style="text-align: center;padding-top: 5%">Result!</h1>
+<div style="padding-right: 35%;padding-left: 35%;padding-top: 6%;padding-bottom: 200px;">
+    <label for="">Your BMI :</label>
+    <div class="alert alert-success" >
+    {{result}}
+    </div>
+    <label for="">Weight Class :</label>
+    {% if result < 18.5 %}
+    <div class ="alert alert-warning">
+    Underweight
+    </div>
+
+    {% elif result < 24.9 %}
+    <div class ="alert alert-success">
+    Normal
+    </div>
+
+    {% elif result < 29.9 %}
+    <div class ="alert alert-warning">
+    Overweight
+    </div>
+
+    {% elif result < 34.9 %}
+    <div class ="alert alert-danger">
+    Obese
+    </div>
+
+    {% elif result > 35 %}
+    <div class ="alert alert-danger">
+    Extremely Obese
+    </div>
+    {% endif %}
+    <button type = "button" class="btn btn-success" onclick="window.location.href='http://127.0.0.1:8000/bmi/bmi/';">Reset</button>
+</div>
+
 
 {% endblock %}
